@@ -10,7 +10,35 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jun 2024 15:02:03 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jun 2024 16:24:19 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Up Kubernetes Using Kubeadm</title>
+      <link>https://avdlii.xyz/posts/kubeadm/</link>
+      <pubDate>Mon, 24 Jun 2024 16:24:19 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/posts/kubeadm/</guid>
+      <description>Creating a working kubernetes cluster from scratch</description>
+      <content:encoded><![CDATA[<p>When I am first learning about <strong>Kubernetes</strong>, I am using <code>minikube</code>. But it was all too easy. I want to learn how to set it up from the ground up. What packages are involved, what dependencies, what configuration files should I look for. The answer to this is <code>kubeadm</code>.</p>
+<p><code>kubeadm</code> is a command line command that lets me create a *<em>Kubernetes</em> cluster from scratch. But before I can use<code>kubeadm</code>, I have to install some packages and configure some os-level stuff.</p>
+<p>I will use <strong>Red Hat Enterprise Linux (RHEL)</strong> to run my <strong>Kubernetes</strong> cluster. These are the steps in  broad strokes:</p>
+<ol>
+<li>Install all <code>kubernetes</code> package dependencies</li>
+<li>Create and activate modprobe modules for <strong>Kubernetes</strong> networking</li>
+<li>Configure kernel parameters using <code>sysctl</code> for networking</li>
+<li>Download and setup <code>containerd</code></li>
+<li>Download and setup <code>runc</code></li>
+<li>Download and configure <code>cni</code></li>
+<li>Disable swap on OS</li>
+<li>Setup the <strong>Kubernetes</strong> repository on the server</li>
+<li>Download <strong>Kubernetes</strong> packages</li>
+<li>Create a <code>kubernetes control-plane</code> which will act as the main brain of the <strong>Kubernetes</strong> cluster</li>
+<li>Create <code>kubernetes workers</code> and join them to the <code>kubernetes control-plane</code> server</li>
+</ol>
+<p>I know this is far from perfect but its definitely a start.</p>
+<p>With this, I can further learn how <strong>Kubernetes</strong> works on a deeper level. One step at a time..</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Thoughts on Kubernetes</title>
       <link>https://avdlii.xyz/posts/thoughts-on-kubernetes/</link>
