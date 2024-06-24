@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+body {
+	background-color: #292828;
+	font-family: "Ubuntu Mono", monospace;
+	color: #d4be98;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+
+.aboutme {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+}
+
+.aboutme .aboutme-p {
+	text-align: left;
+	/*font-size: 2vw;*/
+}
+
+.categories-tools {
+	display: flex;
+	/*border: 1px solid black;*/
+	/*width: 800px;
+	height: 120px;*/
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.box-tools {
+	box-shadow: 0 .5px .5px rgba(0, 0, 0, 1);
+	width: 120px;
+	height: 100px;
+	text-align: center;
+	font-size: 12px;
+	border-radius: 10px;
+	/*background-color: #2e2e33;*/
+	align-items: center;
+	justify-content: center;
+}
+
+.box-tools img {
+	width: 40px;
+	height: 40px;
+	padding-top: 8px;
+}
+
+.categories {
+	display: flex;
+	/*border: 1px solid black;*/
+	/*width: 700px;*/
+	/*height: 150px;*/
+	flex-wrap: wrap;
+	justify-content: center;
+	/*align-items: center;*/
+}
+
+.box {
+	box-shadow: 0 .5px .5px rgba(0, 0, 0, 1);
+	width: 160px;
+	height: 140px;
+	text-align: center;
+	font-size: 22px;
+	border-radius: 10px;
+	/*background-color: #2e2e33;*/
+	align-items: center;
+	justify-content: center;
+}
+
+.box p {
+	font-size: 18px;
+}
+
+.skill-label {
+	font-size: 22px;
+	padding-top: 20px;
+}
+
+.box img {
+	height: 60px;
+	padding-top: 18px;
+}
+
+#edb-box {
+	border-radius: 50%;
+}
+
+#bash-img {
+	filter: invert(100%);
+}
+
+#kvm {
+	width: 120px;
+}
+
+/*
+#box1 {
+	background-color: green;
+}
+#box2 {
+	background-color: blue;
+}
+#box3 {
+	background-color: red;
+}
+#box4 {
+	background-color: yellow;
+}
+*/

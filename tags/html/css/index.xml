@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>HTML/CSS on Agrielio De Lazo II</title>
+    <link>https://avdlii.xyz/tags/html/css/</link>
+    <description>Recent content in HTML/CSS on Agrielio De Lazo II</description>
+    <image>
+      <url>https://avdlii.xyz/img/terminal.png</url>
+      <link>https://avdlii.xyz/img/terminal.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Jun 2024 15:00:46 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/html/css/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Online Blog</title>
+      <link>https://avdlii.xyz/posts/my-blog/</link>
+      <pubDate>Sun, 23 Jun 2024 15:00:46 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/posts/my-blog/</guid>
+      <description>My first online blog made public</description>
+      <content:encoded><![CDATA[<p>For my first post, I thought I would expound on the tech and tools powering this blog.</p>
+<h1 id="linux">Linux</h1>
+<p>Of course, Linux! I will be posting and writing my blog entries using Linux. This blog has also been configured and will be further configured using Linux.</p>
+<h1 id="hugo">Hugo</h1>
+<p>If you never heard of it, Hugo is an open-source site generator tool that has amazing customizability features. I can build and customize portions of my blog. I can add certain modules here and there with HTML and CSS.</p>
+<p>In order to successfully launch this blog, I had to learn Hugo. The main configuration, page configuration, filesystem structure, what function every directory have, and so on. What fun.</p>
+<h1 id="github-pages">Github Pages</h1>
+<p>I deployed my blog in Github Pages, which is a hosting service provided by Github. It is easy to learn and deploy. Best of all: its free!</p>
+<h1 id="github-actions">Github Actions</h1>
+<p>Since I will be writing all my blog entries in my Linux command line, I have to utilize some kind of automation pipeline in order to update my Github Pages blog every time I commit an entry.</p>
+<p>I found this <a href="https://theplaybook.dev/docs/deploy-hugo-to-github-pages/">blog</a> that have a Github Actions automation that will do just that. I studied it to familiarize myself with its process and not put it in my repository blindly without knowing how it works.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

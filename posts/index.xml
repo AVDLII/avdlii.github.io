@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Agrielio De Lazo II</title>
+    <link>https://avdlii.xyz/posts/</link>
+    <description>Recent content in Posts on Agrielio De Lazo II</description>
+    <image>
+      <url>https://avdlii.xyz/img/terminal.png</url>
+      <link>https://avdlii.xyz/img/terminal.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Jun 2024 15:02:03 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thoughts on Kubernetes</title>
+      <link>https://avdlii.xyz/posts/thoughts-on-kubernetes/</link>
+      <pubDate>Mon, 24 Jun 2024 15:02:03 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/posts/thoughts-on-kubernetes/</guid>
+      <description>My thoughts on what attracted me in Kubernetes</description>
+      <content:encoded><![CDATA[<p>In my previous role, my primary focus was on PostgreSQL databases, specifically in database setup, configuration, and infrastructure rather than on the SQL level. For instance, one of my tasks was establishing streaming replication between a master and two standby database servers.</p>
+<p>I found this work incredibly exciting. I vividly remember the satisfaction of getting streaming replication working during my first week on the job. The ability to configure a system from scratch and see it replicate an entire database from one machine to another was exhilarating!</p>
+<p>However, as you&rsquo;re likely aware, working with such systems comes with its challenges.</p>
+<p>When the master server/node fails, one of the standby servers needs to take over as the new master. This process involves rebuilding the old master, which initially acts as a standby/slave before being promoted again to master. In my experience, this rebuilding process can be slow, particularly for large databases common in large enterprises. In a business environment where time is money, the extended rebuild times can pose significant challenges.</p>
+<p>During my time in this role, a former colleague introduced me to an application running on something called <strong>Kubernetes</strong>. He demonstrated a feature where intentionally destroying one of the pods resulted in its automatic replacement without manual intervention or <code>ssh</code>-ing inside the pods to revive it.</p>
+<p>Coming from a database background, this experience fascinated me. And that was just the tip of the kubernetes iceberg.</p>
+<p>And into the rabbit hole I go..</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>My Online Blog</title>
+      <link>https://avdlii.xyz/posts/my-blog/</link>
+      <pubDate>Sun, 23 Jun 2024 15:00:46 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/posts/my-blog/</guid>
+      <description>My first online blog made public</description>
+      <content:encoded><![CDATA[<p>For my first post, I thought I would expound on the tech and tools powering this blog.</p>
+<h1 id="linux">Linux</h1>
+<p>Of course, Linux! I will be posting and writing my blog entries using Linux. This blog has also been configured and will be further configured using Linux.</p>
+<h1 id="hugo">Hugo</h1>
+<p>If you never heard of it, Hugo is an open-source site generator tool that has amazing customizability features. I can build and customize portions of my blog. I can add certain modules here and there with HTML and CSS.</p>
+<p>In order to successfully launch this blog, I had to learn Hugo. The main configuration, page configuration, filesystem structure, what function every directory have, and so on. What fun.</p>
+<h1 id="github-pages">Github Pages</h1>
+<p>I deployed my blog in Github Pages, which is a hosting service provided by Github. It is easy to learn and deploy. Best of all: its free!</p>
+<h1 id="github-actions">Github Actions</h1>
+<p>Since I will be writing all my blog entries in my Linux command line, I have to utilize some kind of automation pipeline in order to update my Github Pages blog every time I commit an entry.</p>
+<p>I found this <a href="https://theplaybook.dev/docs/deploy-hugo-to-github-pages/">blog</a> that have a Github Actions automation that will do just that. I studied it to familiarize myself with its process and not put it in my repository blindly without knowing how it works.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
