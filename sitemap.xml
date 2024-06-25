@@ -3,24 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://avdlii.xyz/</loc>
-    <lastmod>2024-06-24T16:24:19+08:00</lastmod>
+    <lastmod>2024-06-24T20:14:41+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/automation/</loc>
+    <lastmod>2024-06-24T20:14:41+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/tags/bash/</loc>
-    <lastmod>2024-06-24T16:24:19+08:00</lastmod>
+    <lastmod>2024-06-24T20:14:41+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/hugo/</loc>
+    <lastmod>2024-06-24T20:14:41+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/posts/hugo-script/</loc>
+    <lastmod>2024-06-24T20:14:41+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/linux/</loc>
+    <lastmod>2024-06-24T20:14:41+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/posts/</loc>
+    <lastmod>2024-06-24T20:14:41+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/</loc>
+    <lastmod>2024-06-24T20:14:41+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/tags/kubernetes/</loc>
     <lastmod>2024-06-24T16:24:19+08:00</lastmod>
   </url><url>
-    <loc>https://avdlii.xyz/tags/linux/</loc>
-    <lastmod>2024-06-24T16:24:19+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/posts/</loc>
-    <lastmod>2024-06-24T16:24:19+08:00</lastmod>
-  </url><url>
     <loc>https://avdlii.xyz/posts/kubeadm/</loc>
-    <lastmod>2024-06-24T16:24:19+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/tags/</loc>
     <lastmod>2024-06-24T16:24:19+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/posts/thoughts-on-kubernetes/</loc>
@@ -30,9 +39,6 @@
     <lastmod>2024-06-23T15:00:46+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/tags/html/css/</loc>
-    <lastmod>2024-06-23T15:00:46+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/tags/hugo/</loc>
     <lastmod>2024-06-23T15:00:46+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/posts/my-blog/</loc>
