@@ -19,7 +19,7 @@
       <guid>https://avdlii.xyz/posts/kubeadm/</guid>
       <description>Creating a working kubernetes cluster from scratch</description>
       <content:encoded><![CDATA[<p>When I am first learning about <strong>Kubernetes</strong>, I am using <code>minikube</code>. But it was all too easy. I want to learn how to set it up from the ground up. What packages are involved, what dependencies, what configuration files should I look for. The answer to this is <code>kubeadm</code>.</p>
-<p><code>kubeadm</code> is a command line command that lets me create a *<em>Kubernetes</em> cluster from scratch. But before I can use<code>kubeadm</code>, I have to install some packages and configure some os-level stuff.</p>
+<p><code>kubeadm</code> is a command line tool that lets me create a <strong>Kubernetes</strong> cluster from scratch. But before I can use<code>kubeadm</code>, I have to install some packages and configure some os-level stuff.</p>
 <p>I will use <strong>Red Hat Enterprise Linux (RHEL)</strong> to run my <strong>Kubernetes</strong> cluster. These are the steps in  broad strokes:</p>
 <ol>
 <li>Install all <code>kubernetes</code> package dependencies</li>
