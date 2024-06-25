@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Linux on Agrielio De Lazo II</title>
-    <link>https://avdlii.xyz/tags/linux/</link>
-    <description>Recent content in Linux on Agrielio De Lazo II</description>
+    <title>Automation on Agrielio De Lazo II</title>
+    <link>https://avdlii.xyz/tags/automation/</link>
+    <description>Recent content in Automation on Agrielio De Lazo II</description>
     <image>
       <url>https://avdlii.xyz/img/terminal.png</url>
       <link>https://avdlii.xyz/img/terminal.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jun 2024 20:14:41 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jun 2024 20:14:41 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/automation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo Script</title>
       <link>https://avdlii.xyz/posts/hugo-script/</link>
@@ -258,55 +258,6 @@
 </div>
 <p>As you can see, the flow is quite repetitive. I think It can be very efficient if convert this into a script. So that I can focus my attention entirely on the post itself.</p>
 <p>&ldquo;This is the way.&rdquo;</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Setting Up Kubernetes Using Kubeadm</title>
-      <link>https://avdlii.xyz/posts/kubeadm/</link>
-      <pubDate>Mon, 24 Jun 2024 16:24:19 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/posts/kubeadm/</guid>
-      <description>Creating a working kubernetes cluster from scratch</description>
-      <content:encoded><![CDATA[<p>When I am first learning about <strong>Kubernetes</strong>, I am using <code>minikube</code>. But it was all too easy. I want to learn how to set it up from the ground up. What packages are involved, what dependencies, what configuration files should I look for. The answer to this is <code>kubeadm</code>.</p>
-<p><code>kubeadm</code> is a command line command that lets me create a *<em>Kubernetes</em> cluster from scratch. But before I can use<code>kubeadm</code>, I have to install some packages and configure some os-level stuff.</p>
-<p>I will use <strong>Red Hat Enterprise Linux (RHEL)</strong> to run my <strong>Kubernetes</strong> cluster. These are the steps in  broad strokes:</p>
-<ol>
-<li>Install all <code>kubernetes</code> package dependencies</li>
-<li>Create and activate modprobe modules for <strong>Kubernetes</strong> networking</li>
-<li>Configure kernel parameters using <code>sysctl</code> for networking</li>
-<li>Download and setup <code>containerd</code></li>
-<li>Download and setup <code>runc</code></li>
-<li>Download and configure <code>cni</code></li>
-<li>Disable swap on OS</li>
-<li>Setup the <strong>Kubernetes</strong> repository on the server</li>
-<li>Download <strong>Kubernetes</strong> packages</li>
-<li>Create a <code>kubernetes control-plane</code> which will act as the main brain of the <strong>Kubernetes</strong> cluster</li>
-<li>Create <code>kubernetes workers</code> and join them to the <code>kubernetes control-plane</code> server</li>
-</ol>
-<p>I know this is far from perfect but its definitely a start.</p>
-<p>With this, I can further learn how <strong>Kubernetes</strong> works on a deeper level. One step at a time..</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>My Online Blog</title>
-      <link>https://avdlii.xyz/posts/my-blog/</link>
-      <pubDate>Sun, 23 Jun 2024 15:00:46 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/posts/my-blog/</guid>
-      <description>My first online blog made public</description>
-      <content:encoded><![CDATA[<p>For my first post, I thought I would expound on the tech and tools powering this blog.</p>
-<h1 id="linux">Linux</h1>
-<p>Of course, Linux! I will be posting and writing my blog entries using Linux. This blog has also been configured and will be further configured using Linux.</p>
-<h1 id="hugo">Hugo</h1>
-<p>If you never heard of it, Hugo is an open-source site generator tool that has amazing customizability features. I can build and customize portions of my blog. I can add certain modules here and there with HTML and CSS.</p>
-<p>In order to successfully launch this blog, I had to learn Hugo. The main configuration, page configuration, filesystem structure, what function every directory have, and so on. What fun.</p>
-<h1 id="github-pages">Github Pages</h1>
-<p>I deployed my blog in Github Pages, which is a hosting service provided by Github. It is easy to learn and deploy. Best of all: its free!</p>
-<h1 id="github-actions">Github Actions</h1>
-<p>Since I will be writing all my blog entries in my Linux command line, I have to utilize some kind of automation pipeline in order to update my Github Pages blog every time I commit an entry.</p>
-<p>I found this <a href="https://theplaybook.dev/docs/deploy-hugo-to-github-pages/">blog</a> that have a Github Actions automation that will do just that. I studied it to familiarize myself with its process and not put it in my repository blindly without knowing how it works.</p>
 ]]></content:encoded>
     </item>
     
