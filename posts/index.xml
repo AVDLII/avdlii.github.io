@@ -359,18 +359,76 @@
 <p>I will use <strong>Red Hat Enterprise Linux (RHEL)</strong> to run my <strong>Kubernetes</strong> cluster. These are the steps in  broad strokes:</p>
 <ol>
 <li>Install all <code>kubernetes</code> package dependencies</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dnf install curl gpg ca-certificates iproute-tc -y
+</span></span></code></pre></div><ol start="2">
 <li>Create and activate modprobe modules for <strong>Kubernetes</strong> networking</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch /etc/modules-load.d/containerd.conf
+</span></span><span style="display:flex;"><span><span style="color:#fabd2f">echo</span> <span style="color:#b8bb26">&#34;overlay&#34;</span> &gt; /etc/modules-load.d/containerd.conf
+</span></span><span style="display:flex;"><span><span style="color:#fabd2f">echo</span> <span style="color:#b8bb26">&#34;br_netfilter&#34;</span> &gt;&gt; /etc/modules-load.d/containerd.conf
+</span></span><span style="display:flex;"><span>modprobe overlay
+</span></span><span style="display:flex;"><span>modprobe br_netfilter
+</span></span></code></pre></div><ol start="3">
 <li>Configure kernel parameters using <code>sysctl</code> for networking</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#fabd2f">echo</span> <span style="color:#b8bb26">&#34;net.bridge.bridge-nf-call-iptables = 1&#34;</span> &gt;&gt; /etc/sysctl.d/99-kubernetes-cri.conf
+</span></span><span style="display:flex;"><span><span style="color:#fabd2f">echo</span> <span style="color:#b8bb26">&#34;net.bridge.bridge-nf-call-ip6tables = 1&#34;</span> &gt;&gt; /etc/sysctl.d/99-kubernetes-cri.conf
+</span></span><span style="display:flex;"><span><span style="color:#fabd2f">echo</span> <span style="color:#b8bb26">&#34;net.ipv4.ip_forward = 1&#34;</span> &gt;&gt; /etc/sysctl.d/99-kubernetes-cri.conf
+</span></span><span style="display:flex;"><span>sysctl --system
+</span></span></code></pre></div><ol start="4">
 <li>Download and setup <code>containerd</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://github.com/containerd/containerd/releases/download/v1.7.16/containerd-1.7.16-linux-amd64.tar.gz -P /tmp/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tar Cxzvf /usr/local /tmp/containerd-1.7.16-linux-amd64.tar.gz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.service -P /etc/systemd/system
+</span></span></code></pre></div><ol start="5">
 <li>Download and setup <code>runc</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64 -P /tmp/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dnf install -m <span style="color:#d3869b">755</span> /tmp/runc.amd64 /usr/local/sbin/runc
+</span></span></code></pre></div><ol start="6">
 <li>Download and configure <code>cni</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://github.com/containernetworking/plugins/releases/download/v1.4.0/cni-plugins-linux-amd64-v1.4.0.tgz -P /tmp/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir -p /opt/cni/bin
+</span></span><span style="display:flex;"><span>tar Cxvzf /opt/cni/bin /tmp/cni-plugins-linux-amd64-v1.4.0.tgz
+</span></span></code></pre></div><ol start="7">
 <li>Disable swap on OS</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vi /etc/fstab <span style="color:#928374;font-style:italic"># comment-out the line with SWAP</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>swapoff -a
+</span></span></code></pre></div><ol start="8">
 <li>Setup the <strong>Kubernetes</strong> repository on the server</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vi /etc/yum.repos.d/kubernetes.repo
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">[</span>kubernetes<span style="color:#fe8019">]</span>
+</span></span><span style="display:flex;"><span>name<span style="color:#fe8019">=</span>Kubernetes
+</span></span><span style="display:flex;"><span>baseurl<span style="color:#fe8019">=</span>https://pkgs.k8s.io/core:/stable:/v1.30/rpm/
+</span></span><span style="display:flex;"><span>enabled<span style="color:#fe8019">=</span><span style="color:#d3869b">1</span>
+</span></span><span style="display:flex;"><span>gpgcheck<span style="color:#fe8019">=</span><span style="color:#d3869b">1</span>
+</span></span><span style="display:flex;"><span>gpgkey<span style="color:#fe8019">=</span>https://pkgs.k8s.io/core:/stable:/v1.30/rpm/repodata/repomd.xml.key
+</span></span></code></pre></div><ol start="9">
 <li>Download <strong>Kubernetes</strong> packages</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dnf install  kubeadm kubelet kubectl
+</span></span></code></pre></div><ol start="10">
 <li>Create a <code>kubernetes control-plane</code> which will act as the main brain of the <strong>Kubernetes</strong> cluster</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubeadm init --pod-network-cidr 192.168.120.0/24 --kubernetes-version 1.30.0 --node-name k8s-control
+</span></span></code></pre></div><ol start="11">
 <li>Create <code>kubernetes workers</code> and join them to the <code>kubernetes control-plane</code> server</li>
 </ol>
-<p>I know this is far from perfect but its definitely a start.</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#928374;font-style:italic"># run on control-plane</span>
+</span></span><span style="display:flex;"><span>kubeadm token create --print-join-command
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"># run the output of previous command on worker node/s</span>
+</span></span></code></pre></div><p>I know this is far from perfect but its definitely a start.</p>
 <p>With this, I can further learn how <strong>Kubernetes</strong> works on a deeper level. One step at a time..</p>
 ]]></content:encoded>
     </item>
