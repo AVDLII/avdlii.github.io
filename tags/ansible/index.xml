@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ansible on Agrielio De Lazo II</title>
+    <link>https://avdlii.xyz/tags/ansible/</link>
+    <description>Recent content in Ansible on Agrielio De Lazo II</description>
+    <image>
+      <url>https://avdlii.xyz/img/terminal.png</url>
+      <link>https://avdlii.xyz/img/terminal.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Jun 2024 14:41:49 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back to Basics</title>
+      <link>https://avdlii.xyz/posts/back-to-basics/</link>
+      <pubDate>Wed, 26 Jun 2024 14:41:49 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/posts/back-to-basics/</guid>
+      <description>Going back to my roots</description>
+      <content:encoded><![CDATA[<p>I was cleaning up some old files on my computer when I stumbled upon a document. It is a pdf file containing my first ever job &ldquo;entrance exam&rdquo; three years ago.</p>
+<p>It was sort of like an RHCSA type exam where there were real-life scenarios and we were asked to do it all in the command line.</p>
+<p>I realized that no matter how I think that I am not improving or I am still the same, when I see this kind of thing it shows how much growth my skills have shown in the past three years.</p>
+<p>So, I decided to do all these exercises again. But this time in Ansible!</p>
+<p>I will just post a snippet, the user management portion, since this exam is long (27 items):</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>- <span style="color:#fb4934">hosts</span>: rh8-an1
+</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">tasks</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#fb4934">name</span>: Create groups
+</span></span><span style="display:flex;"><span>      <span style="color:#fb4934">become</span>: <span style="color:#fe8019">yes</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#fb4934">group</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#fb4934">name</span>: <span style="color:#b8bb26">&#34;{{ item }}&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#fb4934">loop</span>:
+</span></span><span style="display:flex;"><span>        - redhat
+</span></span><span style="display:flex;"><span>        - tech
+</span></span><span style="display:flex;"><span>        - edb
+</span></span><span style="display:flex;"><span>        - manager
+</span></span><span style="display:flex;"><span>        - manage
+</span></span><span style="display:flex;"><span>        - elk
+</span></span><span style="display:flex;"><span>        - jboss
+</span></span><span style="display:flex;"><span>        - admin
+</span></span><span style="display:flex;"><span>    - <span style="color:#fb4934">name</span>: Create users with groups
+</span></span><span style="display:flex;"><span>      <span style="color:#fb4934">become</span>: <span style="color:#fe8019">yes</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#fb4934">user</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#fb4934">name</span>: <span style="color:#b8bb26">&#34;{{ item.name }}&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#fb4934">groups</span>: <span style="color:#b8bb26">&#34;{{ item.group }}&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#fb4934">state</span>: present
+</span></span><span style="display:flex;"><span>        <span style="color:#fb4934">append</span>: <span style="color:#fe8019">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#fb4934">loop</span>:
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;robin&#39;, group</span>: <span style="color:#b8bb26">&#39;redhat,tech&#39;</span> }
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;anthony&#39;, group</span>: <span style="color:#b8bb26">&#39;edb,rtm&#39;</span> }
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;samuel&#39;, group</span>: <span style="color:#b8bb26">&#39;manage,&#39;</span> }
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;julie&#39;, group</span>: <span style="color:#b8bb26">&#39;elk,rtm&#39;</span> }
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;wilson&#39;, group</span>: <span style="color:#b8bb26">&#39;jboss,rtm&#39;</span> }
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;sora&#39;, group</span>: <span style="color:#b8bb26">&#39;admin&#39;</span> }
+</span></span><span style="display:flex;"><span>    - <span style="color:#fb4934">name</span>: Create directories and change group ownership based on respective group
+</span></span><span style="display:flex;"><span>      <span style="color:#fb4934">become</span>: <span style="color:#fe8019">yes</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#fb4934">file</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#fb4934">path</span>: <span style="color:#b8bb26">&#34;/mnt/abc_solutions/{{ item.name }}&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#fb4934">group</span>: <span style="color:#b8bb26">&#34;{{ item.group }}&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#fb4934">state</span>: directory
+</span></span><span style="display:flex;"><span>      <span style="color:#fb4934">loop</span>:
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;redhat&#39;, group</span>: <span style="color:#b8bb26">&#39;redhat&#39;</span> }
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;edb&#39;, group</span>: <span style="color:#b8bb26">&#39;edb&#39;</span> }
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;manage&#39;, group</span>: <span style="color:#b8bb26">&#39;manage&#39;</span> }
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;elk&#39;, group</span>: <span style="color:#b8bb26">&#39;elk&#39;</span> }
+</span></span><span style="display:flex;"><span>        - { <span style="color:#fb4934">name: &#39;jboss&#39;, group</span>: <span style="color:#b8bb26">&#39;jboss&#39;</span> }
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
