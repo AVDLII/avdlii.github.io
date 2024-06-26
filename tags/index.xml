@@ -10,7 +10,27 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Jun 2024 14:45:01 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jun 2024 14:41:49 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible</title>
+      <link>https://avdlii.xyz/tags/ansible/</link>
+      <pubDate>Wed, 26 Jun 2024 14:41:49 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/tags/ansible/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://avdlii.xyz/tags/linux/</link>
+      <pubDate>Wed, 26 Jun 2024 14:41:49 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/tags/linux/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Bash</title>
       <link>https://avdlii.xyz/tags/bash/</link>
@@ -27,16 +47,6 @@
       <pubDate>Tue, 25 Jun 2024 14:45:01 +0800</pubDate>
       
       <guid>https://avdlii.xyz/tags/hugo/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://avdlii.xyz/tags/linux/</link>
-      <pubDate>Tue, 25 Jun 2024 14:45:01 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/tags/linux/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
