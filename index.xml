@@ -18,11 +18,8 @@
       
       <guid>https://avdlii.xyz/posts/back-to-basics/</guid>
       <description>Going back to my roots</description>
-      <content:encoded><![CDATA[<p>I was cleaning up some old files on my computer when I stumbled upon a document. It is a pdf file containing my first ever job &ldquo;entrance exam&rdquo; three years ago.</p>
-<p>It was sort of like an RHCSA type exam where there were real-life scenarios and we were asked to do it all in the command line.</p>
-<p>I realized that no matter how I think that I am not improving or I am still the same, when I see this kind of thing it shows how much growth my skills have shown in the past three years.</p>
-<p>So, I decided to do all these exercises again. But this time in Ansible!</p>
-<p>I will just post a snippet, the user management portion, since this exam is long (27 items):</p>
+      <content:encoded><![CDATA[<p>While tidying up old files on my computer, I came across a PDF document: my first job &rsquo;entrance exam&rsquo; from three years ago. It was structured like an RHCSA exam, presenting real-life scenarios solved entirely through command-line tasks. Seeing this reminded me of my progress.</p>
+<p>Inspired by this discovery, I&rsquo;ve decided to revisit these exercises. However, this time, I&rsquo;ll tackle them using Ansible. Here’s a snippet focusing on the user management section, as the full exam consists of 27 items.</p>
 <div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span>- <span style="color:#fb4934">hosts</span>: rh8-an1
 </span></span><span style="display:flex;"><span>  <span style="color:#fb4934">tasks</span>:
