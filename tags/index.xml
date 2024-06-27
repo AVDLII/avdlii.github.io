@@ -10,7 +10,37 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Jun 2024 14:41:49 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Jun 2024 16:42:14 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CI/CD</title>
+      <link>https://avdlii.xyz/tags/ci/cd/</link>
+      <pubDate>Thu, 27 Jun 2024 16:42:14 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/tags/ci/cd/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://avdlii.xyz/tags/docker/</link>
+      <pubDate>Thu, 27 Jun 2024 16:42:14 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/tags/docker/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Gitlab</title>
+      <link>https://avdlii.xyz/tags/gitlab/</link>
+      <pubDate>Thu, 27 Jun 2024 16:42:14 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/tags/gitlab/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Ansible</title>
       <link>https://avdlii.xyz/tags/ansible/</link>
