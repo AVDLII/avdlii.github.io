@@ -3,12 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://avdlii.xyz/</loc>
-    <lastmod>2024-06-27T16:42:14+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/tags/ci/cd/</loc>
-    <lastmod>2024-06-27T16:42:14+08:00</lastmod>
+    <lastmod>2024-07-02T12:32:01+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/tags/docker/</loc>
+    <lastmod>2024-07-02T12:32:01+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/posts/dockerized-postgres/</loc>
+    <lastmod>2024-07-02T12:32:01+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/linux/</loc>
+    <lastmod>2024-07-02T12:32:01+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/postgresql/</loc>
+    <lastmod>2024-07-02T12:32:01+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/posts/</loc>
+    <lastmod>2024-07-02T12:32:01+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/</loc>
+    <lastmod>2024-07-02T12:32:01+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/ci/cd/</loc>
     <lastmod>2024-06-27T16:42:14+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/tags/gitlab/</loc>
@@ -17,19 +32,10 @@
     <loc>https://avdlii.xyz/posts/first-gitlab-ci/</loc>
     <lastmod>2024-06-27T16:42:14+08:00</lastmod>
   </url><url>
-    <loc>https://avdlii.xyz/posts/</loc>
-    <lastmod>2024-06-27T16:42:14+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/tags/</loc>
-    <lastmod>2024-06-27T16:42:14+08:00</lastmod>
-  </url><url>
     <loc>https://avdlii.xyz/tags/ansible/</loc>
     <lastmod>2024-06-26T14:41:49+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/posts/back-to-basics/</loc>
-    <lastmod>2024-06-26T14:41:49+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/tags/linux/</loc>
     <lastmod>2024-06-26T14:41:49+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/tags/bash/</loc>

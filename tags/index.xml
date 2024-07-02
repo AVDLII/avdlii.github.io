@@ -10,23 +10,43 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Jun 2024 16:42:14 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Jul 2024 12:32:01 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://avdlii.xyz/tags/docker/</link>
+      <pubDate>Tue, 02 Jul 2024 12:32:01 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/tags/docker/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://avdlii.xyz/tags/linux/</link>
+      <pubDate>Tue, 02 Jul 2024 12:32:01 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/tags/linux/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>PostgreSQL</title>
+      <link>https://avdlii.xyz/tags/postgresql/</link>
+      <pubDate>Tue, 02 Jul 2024 12:32:01 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/tags/postgresql/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>CI/CD</title>
       <link>https://avdlii.xyz/tags/ci/cd/</link>
       <pubDate>Thu, 27 Jun 2024 16:42:14 +0800</pubDate>
       
       <guid>https://avdlii.xyz/tags/ci/cd/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://avdlii.xyz/tags/docker/</link>
-      <pubDate>Thu, 27 Jun 2024 16:42:14 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/tags/docker/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
@@ -47,16 +67,6 @@
       <pubDate>Wed, 26 Jun 2024 14:41:49 +0800</pubDate>
       
       <guid>https://avdlii.xyz/tags/ansible/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://avdlii.xyz/tags/linux/</link>
-      <pubDate>Wed, 26 Jun 2024 14:41:49 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/tags/linux/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
