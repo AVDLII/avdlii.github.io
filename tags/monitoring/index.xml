@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Docker on Agrielio De Lazo II</title>
-    <link>https://avdlii.xyz/tags/docker/</link>
-    <description>Recent content in Docker on Agrielio De Lazo II</description>
+    <title>Monitoring on Agrielio De Lazo II</title>
+    <link>https://avdlii.xyz/tags/monitoring/</link>
+    <description>Recent content in Monitoring on Agrielio De Lazo II</description>
     <image>
       <url>https://avdlii.xyz/img/terminal.png</url>
       <link>https://avdlii.xyz/img/terminal.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jul 2024 16:12:48 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jul 2024 16:12:48 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prometheus Grafana Simulation</title>
       <link>https://avdlii.xyz/posts/prometheus-grafana-test/</link>
@@ -129,107 +129,6 @@
 <p>This dashboard is from the <code>node-exporter</code> data. That&rsquo;s a lot of metrics!</p>
 </blockquote>
 <p>I can&rsquo;t wait to deploy these along with my self-hosted homelab servers.</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Dockerizing My Backend</title>
-      <link>https://avdlii.xyz/posts/dockerized-postgres/</link>
-      <pubDate>Tue, 02 Jul 2024 12:32:01 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/posts/dockerized-postgres/</guid>
-      <description>Trying out PostgreSQL on Docker for my python app</description>
-      <content:encoded><![CDATA[<p>As said in my earlier post, my python application has a PostgreSQL backend running on a separate VM. But in order to fully appreciate Docker, I decided to try out PostgreSQL on Docker.</p>
-<p>First, let&rsquo;s pull the official PostgreSQL image for alpine</p>
-<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker pull postgres:15-alpine
-</span></span></code></pre></div><p>Then run the image and include the environment variable <code>POSTGRES_PASSWORD</code> for now. We will also add a volume for data persistence.</p>
-<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker run -itd --rm --name psql <span style="color:#b8bb26">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b8bb26"></span>&gt; -e POSTGRES_PASSWORD<span style="color:#fe8019">=</span>******** <span style="color:#b8bb26">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b8bb26"></span>&gt; -v ./dbdata:/var/lib/postgresql/data <span style="color:#b8bb26">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b8bb26"></span>&gt; postgres:15-alpine
-</span></span></code></pre></div><p>Now, let&rsquo;s look at the container ip address so we can access it using <code>psql</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker inspect bridge
-</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"># output truncated</span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#b8bb26">&#34;ConfigOnly&#34;</span>: false,
-</span></span><span style="display:flex;"><span>        <span style="color:#b8bb26">&#34;Containers&#34;</span>: <span style="color:#fe8019">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#b8bb26">&#34;6c414502dbe431761f838726180b073b579a855c178a996ff57e9b8510a33f4d&#34;</span>: <span style="color:#fe8019">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#b8bb26">&#34;Name&#34;</span>: <span style="color:#b8bb26">&#34;psql&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#b8bb26">&#34;EndpointID&#34;</span>: <span style="color:#b8bb26">&#34;562ba21b5b1c1cf18e535887c0c77366f6f087c4f2db6b154e0ccdb7f970eede&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#b8bb26">&#34;MacAddress&#34;</span>: <span style="color:#b8bb26">&#34;22:81:bd:2d:1c:52&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#b8bb26">&#34;IPv4Address&#34;</span>: <span style="color:#b8bb26">&#34;172.17.0.2/16&#34;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#b8bb26">&#34;IPv6Address&#34;</span>: <span style="color:#b8bb26">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#fe8019">}</span>
-</span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p>To access the container using <code>psql</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ psql -h 172.17.0.2 -d postgres -U postgres
-</span></span><span style="display:flex;"><span>Password <span style="color:#fe8019">for</span> user postgres:
-</span></span><span style="display:flex;"><span>psql <span style="color:#fe8019">(</span>14.12 <span style="color:#fe8019">(</span>Ubuntu 14.12-0ubuntu0.22.04.1<span style="color:#fe8019">)</span>, server 15.7<span style="color:#fe8019">)</span>
-</span></span><span style="display:flex;"><span>WARNING: psql major version 14, server major version 15.
-</span></span><span style="display:flex;"><span>         Some psql features might not work.
-</span></span><span style="display:flex;"><span>Type <span style="color:#b8bb26">&#34;help&#34;</span> <span style="color:#fe8019">for</span> help.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>postgres<span style="color:#fe8019">=</span><span style="color:#928374;font-style:italic">#</span>
-</span></span></code></pre></div><blockquote>
-<p>The warning message is because I have a version 14 <code>psql</code> installed on my machine but I accessed a version 15 server</p>
-</blockquote>
-<p>That&rsquo;s it! Now, I can configure my python application to connect to this database container and I will then deploy them using <code>docker-compose</code></p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>My First Gitlab CI</title>
-      <link>https://avdlii.xyz/posts/first-gitlab-ci/</link>
-      <pubDate>Thu, 27 Jun 2024 16:42:14 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/posts/first-gitlab-ci/</guid>
-      <description>Implemented my very first Gitlab CI</description>
-      <content:encoded><![CDATA[<p>This afternoon, I have successfully implemented my first Gitlab CI pipeline!</p>
-<p>The application I have done is made from python flask which I followed thanks to this <a href="https://www.youtube.com/watch?v=tBmRjtoEBzw">tutorial</a>. I connected this app to an external <code>PostgreSQL</code> database running on a separate KVM instance in my network. Here&rsquo;s the preview:</p>
-<p><img loading="lazy" src="/pic2.png" type="" alt="python-shopping-list-app"  /></p>
-<blockquote>
-<p>Yeah, I know that&rsquo;s not the prettiest to look at. But my priority is to make a functioning application first. I will modify it with CSS later (using my pipeline, of course!)</p>
-</blockquote>
-<p>Once I have done this, I turned it into a docker container. Here&rsquo;s the <code>Dockerfile</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-docker" data-lang="docker"><span style="display:flex;"><span><span style="color:#fe8019">FROM</span><span style="color:#b8bb26"> python:3.8-alpine</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#fe8019">WORKDIR</span><span style="color:#b8bb26"> /flask-postgresql</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#fe8019">COPY</span> requirements.txt requirements.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#fe8019">RUN</span> pip3 install -r requirements.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#fe8019">COPY</span> . .
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#fe8019">CMD</span> [ <span style="color:#b8bb26">&#34;python3&#34;</span>, <span style="color:#b8bb26">&#34;-m&#34;</span>, <span style="color:#b8bb26">&#34;flask&#34;</span>, <span style="color:#b8bb26">&#34;run&#34;</span>, <span style="color:#b8bb26">&#34;--host=0.0.0.0&#34;</span>]
-</span></span></code></pre></div><p>Then I went and tested it locally before pushing it into my DockerHub repo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build . -t <span style="color:#fe8019">[</span>docker_username<span style="color:#fe8019">]</span>/python-gitlab-ci:0.1
-</span></span><span style="display:flex;"><span>docker run --name app1 -p 5000:5000 <span style="color:#fe8019">[</span>docker_username<span style="color:#fe8019">]</span>/python-gitlab-ci:0.1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"># When confirmed working, it&#39;s time to push it into my dockerhub repo</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>docker push <span style="color:#fe8019">[</span>docker_username<span style="color:#fe8019">]</span>/python-gitlab-ci:0.1
-</span></span></code></pre></div><p>I can then establish my CI pipeline by creating a <code>.gitlab-ci.yml</code> file inside my repo root directory:</p>
-<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#fb4934">variables</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">IMAGE_NAME</span>: [docker_username]/python-gitlab-ci
-</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">IMAGE_VERSION</span>: <span style="color:#d3869b">0.1</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#fb4934">build_image</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">image</span>: docker:26.1.4
-</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">services</span>:
-</span></span><span style="display:flex;"><span>    - docker:26.1.4-dind
-</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">variables</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">IMAGE_TAG</span>: python-app
-</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">DOCKER_TLS_CERTDIR</span>: <span style="color:#b8bb26">&#34;/certs&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">before_script</span>:
-</span></span><span style="display:flex;"><span>    - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
-</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">script</span>:
-</span></span><span style="display:flex;"><span>    - docker build . -t $IMAGE_NAME:$IMAGE_TAG-$IMAGE_VERSION
-</span></span><span style="display:flex;"><span>    - docker push $IMAGE_NAME:$IMAGE_TAG-$IMAGE_VERSION
-</span></span></code></pre></div><p>Now everytime I push some changes in my local Gitlab repo, the CI pipeline will trigger and push the new container image to my dockerhub:</p>
-<p><img loading="lazy" src="/pic3.png" type="" alt="gitlab-ci-img"  /></p>
-<p>I will use this pipeline as I modify my python-flask application&rsquo;s CSS style.</p>
-<p>However, this pipeline is still incomplete. I need to add a testing stage to test my Python code before building the image. Additionally, I require a deployment stage to deploy the container to my Kubernetes cluster.</p>
 ]]></content:encoded>
     </item>
     

@@ -3,25 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://avdlii.xyz/</loc>
-    <lastmod>2024-07-08T13:12:43+08:00</lastmod>
+    <lastmod>2024-07-08T16:12:48+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/docker/</loc>
+    <lastmod>2024-07-08T16:12:48+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/docker-compose/</loc>
+    <lastmod>2024-07-08T16:12:48+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/linux/</loc>
+    <lastmod>2024-07-08T16:12:48+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/monitoring/</loc>
+    <lastmod>2024-07-08T16:12:48+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/posts/</loc>
+    <lastmod>2024-07-08T16:12:48+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/posts/prometheus-grafana-test/</loc>
+    <lastmod>2024-07-08T16:12:48+08:00</lastmod>
+  </url><url>
+    <loc>https://avdlii.xyz/tags/</loc>
+    <lastmod>2024-07-08T16:12:48+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/tags/homelab/</loc>
     <lastmod>2024-07-08T13:12:43+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/posts/homelab-ideas/</loc>
     <lastmod>2024-07-08T13:12:43+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/tags/linux/</loc>
-    <lastmod>2024-07-08T13:12:43+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/posts/</loc>
-    <lastmod>2024-07-08T13:12:43+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/tags/</loc>
-    <lastmod>2024-07-08T13:12:43+08:00</lastmod>
-  </url><url>
-    <loc>https://avdlii.xyz/tags/docker/</loc>
-    <lastmod>2024-07-02T12:32:01+08:00</lastmod>
   </url><url>
     <loc>https://avdlii.xyz/posts/dockerized-postgres/</loc>
     <lastmod>2024-07-02T12:32:01+08:00</lastmod>
