@@ -10,7 +10,128 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jul 2024 13:12:43 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jul 2024 16:12:48 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prometheus Grafana Simulation</title>
+      <link>https://avdlii.xyz/posts/prometheus-grafana-test/</link>
+      <pubDate>Mon, 08 Jul 2024 16:12:48 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/posts/prometheus-grafana-test/</guid>
+      <description>Testing the Prometheus Grafana Stack using Docker Compose</description>
+      <content:encoded><![CDATA[<p>It&rsquo;s been a while since I heard about Prometheus and Grafana.</p>
+<p>It is an observability stack that can be used to monitor container resources.</p>
+<p>Prometheus is for gathering and consolidating the resources data scraped from the containers and Grafana is for data visualization.</p>
+<p>I decided to try it out for myself and use it for my future homelab projects!</p>
+<p>Below is the <code>docker-compose.yml</code> file I used</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#fb4934">volumes</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">prometheus-data</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">driver</span>: local
+</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">grafana-data</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">driver</span>: local
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fb4934">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">prometheus</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">image</span>: docker.io/prom/prometheus:v2.53.0
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">container_name</span>: prometheus
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#d3869b">9090</span>:<span style="color:#d3869b">9090</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">command</span>: <span style="color:#b8bb26">&#34;--config.file=/etc/prometheus/prometheus.yaml&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">volumes</span>:
+</span></span><span style="display:flex;"><span>      - ./config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+</span></span><span style="display:flex;"><span>      - prometheus-data:/prometheus
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">restart</span>: unless-stopped
+</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">grafana</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">image</span>: docker.io/grafana/grafana-oss:11.1.0
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">container_name</span>: grafana
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#d3869b">3000</span>:<span style="color:#d3869b">3000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">volumes</span>:
+</span></span><span style="display:flex;"><span>      - grafana-data:/var/lib/grafana
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">restart</span>: unless-stopped
+</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">node_exporter</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">image</span>: quay.io/prometheus/node-exporter:v1.1.0
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">container_name</span>: node_exporter
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">command</span>: <span style="color:#b8bb26">&#34;--path.rootfs=/host&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">pid</span>: host
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">restart</span>: unless-stopped
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">volumes</span>:
+</span></span><span style="display:flex;"><span>      - /:/host:ro,rslave
+</span></span><span style="display:flex;"><span>  <span style="color:#fb4934">cadvisor</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">image</span>: gcr.io/cadvisor/cadvisor:v0.49.1
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">container_name</span>: cadvisor
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#d3869b">8080</span>:<span style="color:#d3869b">8080</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">volumes</span>:
+</span></span><span style="display:flex;"><span>      - /:/rootfs:ro
+</span></span><span style="display:flex;"><span>      - /run:/run:ro
+</span></span><span style="display:flex;"><span>      - /sys:/sys:ro
+</span></span><span style="display:flex;"><span>      - /var/lib/docker:/var/lib/docker:ro
+</span></span><span style="display:flex;"><span>      - /dev/disk:/dev/disk:ro
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">devices</span>:
+</span></span><span style="display:flex;"><span>      - /dev/kmsg
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">privileged</span>: <span style="color:#fe8019">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">restart</span>: unless-stopped
+</span></span></code></pre></div><h3 id="breakdown">Breakdown</h3>
+<p>The first service is for Prometheus. I used version 2.53 and created volumes for the configuration file and the main prometheus data persistency:</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#fb4934">prometheus</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">image</span>: docker.io/prom/prometheus:v2.53.0
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">container_name</span>: prometheus
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#d3869b">9090</span>:<span style="color:#d3869b">9090</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">command</span>: <span style="color:#b8bb26">&#34;--config.file=/etc/prometheus/prometheus.yaml&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">volumes</span>:
+</span></span><span style="display:flex;"><span>      - ./config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+</span></span><span style="display:flex;"><span>      - prometheus-data:/prometheus
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">restart</span>: unless-stopped
+</span></span></code></pre></div><p>Next is Grafana, our data visualizer using the data gathered by Prometheus</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#fb4934">grafana</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">image</span>: docker.io/grafana/grafana-oss:11.1.0
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">container_name</span>: grafana
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#d3869b">3000</span>:<span style="color:#d3869b">3000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">volumes</span>:
+</span></span><span style="display:flex;"><span>      - grafana-data:/var/lib/grafana
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">restart</span>: unless-stopped
+</span></span></code></pre></div><p>Then there&rsquo;s Node Exporter, which Prometheus use to gather host resources metrics</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#fb4934">node_exporter</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">image</span>: quay.io/prometheus/node-exporter:v1.1.0
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">container_name</span>: node_exporter
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">command</span>: <span style="color:#b8bb26">&#34;--path.rootfs=/host&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">pid</span>: host
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">restart</span>: unless-stopped
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">volumes</span>:
+</span></span><span style="display:flex;"><span>      - /:/host:ro,rslave
+</span></span></code></pre></div><p>And lastly, CAdvisor, which Prometheus use to gather resource metrics of our docker containers</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#fb4934">cadvisor</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">image</span>: gcr.io/cadvisor/cadvisor:v0.49.1
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">container_name</span>: cadvisor
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#d3869b">8080</span>:<span style="color:#d3869b">8080</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">volumes</span>:
+</span></span><span style="display:flex;"><span>      - /:/rootfs:ro
+</span></span><span style="display:flex;"><span>      - /run:/run:ro
+</span></span><span style="display:flex;"><span>      - /sys:/sys:ro
+</span></span><span style="display:flex;"><span>      - /var/lib/docker:/var/lib/docker:ro
+</span></span><span style="display:flex;"><span>      - /dev/disk:/dev/disk:ro
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">devices</span>:
+</span></span><span style="display:flex;"><span>      - /dev/kmsg
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">privileged</span>: <span style="color:#fe8019">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fb4934">restart</span>: unless-stopped
+</span></span></code></pre></div><p>Apparently, CAdvisor and Node Exporter needs access to the root directory, so do not deploy it on an unsecured environment.</p>
+<p>This is quite nice!</p>
+<p><img loading="lazy" src="/pic4.png" type="" alt="grafana-dashboard"  /></p>
+<blockquote>
+<p>This dashboard is from the <code>cadvisor</code> data</p>
+</blockquote>
+<p><img loading="lazy" src="/pic5.png" type="" alt="grafana-dashboard-2"  /></p>
+<blockquote>
+<p>This dashboard is from the <code>node-exporter</code> data. That&rsquo;s a lot of metrics!</p>
+</blockquote>
+<p>I can&rsquo;t wait to deploy these along with my self-hosted homelab servers.</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Homelab Ideas</title>
       <link>https://avdlii.xyz/posts/homelab-ideas/</link>
