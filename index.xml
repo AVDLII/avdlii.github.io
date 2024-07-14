@@ -10,7 +10,36 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jul 2024 16:12:48 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jul 2024 14:28:30 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homelab Self-hosting Update</title>
+      <link>https://avdlii.xyz/posts/homelab-update/</link>
+      <pubDate>Sun, 14 Jul 2024 14:28:30 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/posts/homelab-update/</guid>
+      <description>A more robust homelab environment</description>
+      <content:encoded><![CDATA[<p>This past week, all I did was update and refine my homelab environment. I am doing all the setup on my old Ubuntu PC and deploying my applications on docker containers. It was a lot of funand I am learning a lot.</p>
+<p>For those who don&rsquo;t know me, I love watching (and rewatching) movies and TV shows. Especially those that left a mark in my brain. So when I found out that I can self-host my own media server, I was amazed. And with that, I fell into the rabbithole of self-hosting and homelabbing.</p>
+<p>I want to share my homelab diagram. This is just the basic setup and I will update it as I go. I might even buy an old mini PC to use as a server. But now, this will do:</p>
+<p><img loading="lazy" src="/pic6.png" type="" alt="homelab-diagram"  title="Homelab-diagram-1"  /></p>
+<h3 id="pi-hole">Pi-hole</h3>
+<p>PiHole is a network-wide adblocking application that acts as my DNS for my other applications.</p>
+<h3 id="nginx-proxy-manager">Nginx Proxy Manager</h3>
+<p>Nginx Proxy Manager is my reverse proxy server for redirecting the server requests on my private network to their respective IP/ports.</p>
+<h3 id="jellyfin">Jellyfin</h3>
+<p>My self-hosted media server. All the users in our home network can access my Jellyfin server to watch movies and shows.</p>
+<h3 id="vaultwarden">Vaultwarden</h3>
+<p>My password manager for all my sites. I think this is much safer since this is privately-hosted.</p>
+<h3 id="prometheus-grafana-cadvisor">Prometheus, Grafana, CAdvisor</h3>
+<p>As I discussed in my previous post, this monitoring stack provides data that is converted into a visualized graphs for monitoring my containers&rsquo; resources.
+<br>
+<br>
+<br>
+<br>
+As of now, I am deploying all of this in a single docker compose file. But as this setup becomes more static, I am gonna use Portainer for my container management.</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Prometheus Grafana Simulation</title>
       <link>https://avdlii.xyz/posts/prometheus-grafana-test/</link>
