@@ -10,7 +10,33 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Jul 2024 14:28:30 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Jul 2024 16:11:30 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homelab Update 2</title>
+      <link>https://avdlii.xyz/posts/homelab-update-2/</link>
+      <pubDate>Thu, 18 Jul 2024 16:11:30 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/posts/homelab-update-2/</guid>
+      <description>Homelab hosted on a dedicated server</description>
+      <content:encoded><![CDATA[<p>I would like to share my updated homelab. I pulled the trigger and bought an old/used mini PC. The specs are decent enough for my own use-case and I think for its performance, it is worth the price.</p>
+<p>For starters, I decided to use Proxmox as my main homelab OS. At first I thought I would just test it out and see what happens but the more I tinker with it, the more I am liking it so I stuck with Proxmox. I also like the added benefit of spinning up a new VM in the web interface.
+<img loading="lazy" src="/pic8.png" type="" alt="proxmox"  title="my-proxmox"  />
+<br>
+<br>
+This is now my updated homelab diagram. It is still as simple as the previous one but I am working on making it more like into more of a production-grade environment:
+<img loading="lazy" src="/pic7.png" type="" alt="homelab-diagram-udpated"  title="Homelab-diagram-updated-1"  />
+<br>
+<br>
+Nothing has changed from my previous setup. I am still running <code>Pi-hole</code> as my ad-blocker and DNS coupled with <code>Nginx Proxy Manager</code> for reverse proxy and resolving hostnames (I will also work on adding SSL certificates in my homelab with this). I am still hosting my media server <code>Jellyfin</code> for our family entertainment needs. And of course, <code>Grafana</code> and <code>Prometheus</code> for my monitoring stack.
+<br>
+<br>
+The only thing that changed is that I am now hosting separate instances of <code>node_exporter</code> and connecting them all to a centralized <code>Prometheus</code> server so that I can monitor servers remotely outside <code>Prometheus</code>&rsquo; docker network. And also, this is where I will spin up my <code>kubernetes</code> testing lab.
+<br>
+<br>
+This week has been very productive so far and I am learning a lot!</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Homelab Self-hosting Update</title>
       <link>https://avdlii.xyz/posts/homelab-update/</link>
