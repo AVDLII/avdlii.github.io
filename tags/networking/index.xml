@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Homelab on Agrielio De Lazo II</title>
-    <link>https://avdlii.xyz/tags/homelab/</link>
-    <description>Recent content in Homelab on Agrielio De Lazo II</description>
+    <title>Networking on Agrielio De Lazo II</title>
+    <link>https://avdlii.xyz/tags/networking/</link>
+    <description>Recent content in Networking on Agrielio De Lazo II</description>
     <image>
       <url>https://avdlii.xyz/img/terminal.png</url>
       <link>https://avdlii.xyz/img/terminal.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Aug 2024 19:48:06 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Aug 2024 19:48:06 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Troubeshooting Homelab Issue: Media Server</title>
       <link>https://avdlii.xyz/posts/troubeshooting-jellyfin-server/</link>
@@ -125,75 +125,6 @@ In hindsight, this may have been a very short investigation had I went over the 
 <br>
 <br>
 I learned a lot with this experience. This is the good thing about having a homelab. I am always learning, re-learning and realizing new things everyday.</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Homelab Update: Proxmox</title>
-      <link>https://avdlii.xyz/posts/homelab-update-2/</link>
-      <pubDate>Thu, 18 Jul 2024 16:11:30 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/posts/homelab-update-2/</guid>
-      <description>Homelab hosted on a dedicated server</description>
-      <content:encoded><![CDATA[<p>I would like to share my updated homelab. I pulled the trigger and bought an old/used mini PC. The specs are decent enough for my own use-case and I think for its performance, it is worth the price.</p>
-<p>For starters, I decided to use Proxmox as my main homelab OS. At first I thought I would just test it out and see what happens but the more I tinker with it, the more I am liking it so I stuck with Proxmox. I also like the added benefit of spinning up a new VM in the web interface.
-<img loading="lazy" src="/pic8.png" type="" alt="proxmox"  title="my-proxmox"  />
-<br>
-<br>
-This is now my updated homelab diagram. It is still as simple as the previous one but I am working on making it more like into more of a production-grade environment:
-<img loading="lazy" src="/pic7.png" type="" alt="homelab-diagram-udpated"  title="Homelab-diagram-updated-1"  />
-<br>
-<br>
-Nothing has changed from my previous setup. I am still running <code>Pi-hole</code> as my ad-blocker and DNS coupled with <code>Nginx Proxy Manager</code> for reverse proxy and resolving hostnames (I will also work on adding SSL certificates in my homelab with this). I am still hosting my media server <code>Jellyfin</code> for our family entertainment needs. And of course, <code>Grafana</code> and <code>Prometheus</code> for my monitoring stack.
-<br>
-<br>
-The only thing that changed is that I am now hosting separate instances of <code>node_exporter</code> and connecting them all to a centralized <code>Prometheus</code> server so that I can monitor servers remotely outside <code>Prometheus</code>&rsquo; docker network. And also, this is where I will spin up my <code>kubernetes</code> testing lab.
-<br>
-<br>
-This week has been very productive so far and I am learning a lot!</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Homelab Self-hosting Update</title>
-      <link>https://avdlii.xyz/posts/homelab-update/</link>
-      <pubDate>Sun, 14 Jul 2024 14:28:30 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/posts/homelab-update/</guid>
-      <description>A more robust homelab environment</description>
-      <content:encoded><![CDATA[<p>This past week, all I did was update and refine my homelab environment. I am doing all the setup on my old Ubuntu PC and deploying my applications on docker containers. It was a lot of funand I am learning a lot.</p>
-<p>For those who don&rsquo;t know me, I love watching (and rewatching) movies and TV shows. Especially those that left a mark in my brain. So when I found out that I can self-host my own media server, I was amazed. And with that, I fell into the rabbithole of self-hosting and homelabbing.</p>
-<p>I want to share my homelab diagram. This is just the basic setup and I will update it as I go. I might even buy an old mini PC to use as a server. But now, this will do:</p>
-<p><img loading="lazy" src="/pic6.png" type="" alt="homelab-diagram"  title="Homelab-diagram-1"  /></p>
-<h3 id="pi-hole">Pi-hole</h3>
-<p>PiHole is a network-wide adblocking application that acts as my DNS for my other applications.</p>
-<h3 id="nginx-proxy-manager">Nginx Proxy Manager</h3>
-<p>Nginx Proxy Manager is my reverse proxy server for redirecting the server requests on my private network to their respective IP/ports.</p>
-<h3 id="jellyfin">Jellyfin</h3>
-<p>My self-hosted media server. All the users in our home network can access my Jellyfin server to watch movies and shows.</p>
-<h3 id="vaultwarden">Vaultwarden</h3>
-<p>My password manager for all my sites. I think this is much safer since this is privately-hosted.</p>
-<h3 id="prometheus-grafana-cadvisor">Prometheus, Grafana, CAdvisor</h3>
-<p>As I discussed in my previous post, this monitoring stack provides data that is converted into a visualized graphs for monitoring my containers&rsquo; resources.
-<br>
-<br>
-<br>
-<br>
-As of now, I am deploying all of this in a single docker compose file. But as this setup becomes more static, I am gonna use Portainer for my container management.</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Homelab Ideas</title>
-      <link>https://avdlii.xyz/posts/homelab-ideas/</link>
-      <pubDate>Mon, 08 Jul 2024 13:12:43 +0800</pubDate>
-      
-      <guid>https://avdlii.xyz/posts/homelab-ideas/</guid>
-      <description>Brainstorming homelab ideas</description>
-      <content:encoded><![CDATA[<p>I&rsquo;m considering transforming my Windows PC into a homelab. Currently, it runs both Windows and Ubuntu in dual-boot mode, allowing me to <code>ssh</code> into Ubuntu and create virtual machines using <code>virsh</code> for testing and simulation.</p>
-<p>As I research more, I discovered numerous services and applications that I could host on this older PC.</p>
-<p>To start, since I primarily use this PC for virtual machines, why not experiment with Proxmox? Additionally, as for watching TV series and movies, hosting my own Jellyfin server sounds exciting. Concerned about managing passwords across different sites? I&rsquo;ll set up my own Bitwarden server.</p>
-<p>The possibilities are just too many to ignore so I think I&rsquo;m gonna do it.</p>
 ]]></content:encoded>
     </item>
     

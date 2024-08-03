@@ -10,11 +10,11 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jul 2024 16:11:30 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Aug 2024 19:48:06 +0800</lastBuildDate><atom:link href="https://avdlii.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Homelab</title>
       <link>https://avdlii.xyz/tags/homelab/</link>
-      <pubDate>Thu, 18 Jul 2024 16:11:30 +0800</pubDate>
+      <pubDate>Sat, 03 Aug 2024 19:48:06 +0800</pubDate>
       
       <guid>https://avdlii.xyz/tags/homelab/</guid>
       <description></description>
@@ -24,9 +24,19 @@
     <item>
       <title>Linux</title>
       <link>https://avdlii.xyz/tags/linux/</link>
-      <pubDate>Thu, 18 Jul 2024 16:11:30 +0800</pubDate>
+      <pubDate>Sat, 03 Aug 2024 19:48:06 +0800</pubDate>
       
       <guid>https://avdlii.xyz/tags/linux/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Networking</title>
+      <link>https://avdlii.xyz/tags/networking/</link>
+      <pubDate>Sat, 03 Aug 2024 19:48:06 +0800</pubDate>
+      
+      <guid>https://avdlii.xyz/tags/networking/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
